@@ -1,12 +1,12 @@
 <?php
 
-// Задание 1
+// Задание 1.
 $name = readline("Здравствуйте, как вас зовут? ");
 $age = readline("Сколько вам лет? ");
 echo "Вас зовут $name, вам $age лет\n";
 echo "\n";
 
-// Задание 2
+// Задание 2.
 $task1 = readline("Какая задача стоит перед вами сегодня? ");
 $duration1 = readline("Сколько примерно времени эта задача займет?");
 
@@ -24,7 +24,7 @@ echo "- $task2 ($duration2 ч)\n";
 echo "- $task3 ($duration3 ч)\n";
 echo "Примерное время выполнения плана = $totalDuration ч";
 
-// Задание 2, вариант 2
+// Задание 2, вариант 2.
 class Plan {
     public $task = "";
     public $duration = 0;
