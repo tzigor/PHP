@@ -1,5 +1,8 @@
 <?php
 
+const Question1 = "Какая задача стоит перед вами сегодня? ";
+const Question2 ="Сколько примерно времени эта задача займет? " ;
+
 // Задание 1.
 $name = readline("Здравствуйте, как вас зовут? ");
 $age = readline("Сколько вам лет? ");
@@ -7,14 +10,14 @@ echo "Вас зовут $name, вам $age лет\n";
 echo "\n";
 
 // Задание 2.
-$task1 = readline("Какая задача стоит перед вами сегодня? ");
-$duration1 = readline("Сколько примерно времени эта задача займет?");
+$task1 = readline(Question1);
+$duration1 = readline(Question2);
 
-$task2 = readline("Какая задача стоит перед вами сегодня? ");
-$duration2 = readline("Сколько примерно времени эта задача займет?");
+$task2 = readline(Question1);
+$duration2 = readline(Question2);
 
-$task3 = readline("Какая задача стоит перед вами сегодня? ");
-$duration3 = readline("Сколько примерно времени эта задача займет?");
+$task3 = readline(Question1);
+$duration3 = readline(Question2);
 
 $totalDuration = $duration1 + $duration2 + $duration3;
 
@@ -36,14 +39,14 @@ $totalDuration = 0;
 
 for ($i = 1; $i <= taskCount; $i++) {
 	$plan = new Plan();
-    $plan -> task = readline("Какая задача стоит перед вами сегодня? ");
-    $plan -> duration = readline("Сколько примерно времени эта задача займет? ");
+    $plan -> task = readline(Question1);
+    $plan -> duration = readline(Question2);
     $plans[] = $plan;
     $totalDuration += $plan -> duration;
 }
 
 echo "$name, сегодня у вас запланировано " . taskCount . " приоритетных задачи на день:\n";
 for ($i = 0; $i <= taskCount - 1; $i++) {
-    echo "- " . $plans[$i] -> task . " (" . $plan -> duration . " ч)\n";
+    echo "- {$plans[$i] -> task} ({$plan -> duration} ч)\n";
 }
 echo "Примерное время выполнения плана = $totalDuration ч";
