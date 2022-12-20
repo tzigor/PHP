@@ -68,11 +68,6 @@ class Task {
         return $this->description;
     }
 
-    public function getPriority(): bool
-    {
-        return $this->priority;
-    }
-
     public function markAsDone(): void
     {
         $this->isDone = true; 
@@ -109,6 +104,7 @@ class Comment {
     {
         $this->text = $text;
     }
+
     public function getText(): string
     {
         return $this->text;
@@ -118,7 +114,6 @@ class Comment {
     {
         return $this->author->getUsername();
     }
-
 }
 
 class TaskService {
