@@ -116,6 +116,14 @@ class Comment {
     }
 }
 
+class TaskList {
+    private array $tasks = [];
+    public function setTask(Task $task): void
+    {
+        $this->$tasks[] = $task;
+    }
+}
+
 class TaskService {
     public static function addComment(User $user, Task $task, string $text): Comment
     {
