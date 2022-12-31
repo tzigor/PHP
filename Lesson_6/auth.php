@@ -1,12 +1,12 @@
 <?php 
     session_start();
     $userName = null;
-    if (isset($_REQUEST['username']) && !empty($_REQUEST['username'])) {
+    if (isset($_POST['username']) && !empty($_POST['username'])) {
         // setcookie('username', $userName, time() + 10800, '/');
-        $userName = $_REQUEST['username'];
-        $pass = isset($_REQUEST['pass']) ?? null;
+        $userName = $_POST['username'];
+        $pass = isset($_POST['pass']) ?? null;
         if ($userName == 'igor' && $pass == '123'){
-            // var_dump($_REQUEST);
+            // var_dump($_POST);
             // die(); 
             $_SESSION['username'] = $userName;
             header('Location: /');
