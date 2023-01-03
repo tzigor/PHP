@@ -1,14 +1,21 @@
 <head>
-    <meta charset="UTF-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Document</title>
+    <link type="text/css" rel="stylesheet" href="index.css">
 </head>
+<style>
+    <?php include 'index.css'; ?>
+</style>
+
 <body>
-    <h1><?= $pageHeader ?></h1>
+    <div class="header"><?= $pageHeader ?></div>
     <br>
-    <?php if ($userName !== null): ?>
-        <a href="/?controller=tasks">Tasks</a>
+    <?php if ($userName !== null) : ?>
+        <div class="menu">
+            <a class="tasks" href="/?controller=tasks">Tasks</a>
+        </div>
         <p>Hello <?= $userName ?>. <a href='?action=logout'>[Exit]</a></p>
-    <?php else: ?>   
-        <a href="/?controller=security">Authorisation</a>
+    <?php else : ?>
+        <a class="auth" href="/?controller=security">Sign In</a>
     <?php endif; ?>
 </body>

@@ -17,21 +17,38 @@ body {
     font-size: 18px;
 }
 
-.header {
+.error {
+    text-align: center;
     font-family: Roboto;
-    font-size: 36px;
-    color: #1f1f1f;
+    font-size: 24px;
+    color: #a60000;
 }
 
-.auth {
+.signInBox {
     display: flex;
     justify-content: center;
+    margin-top: 50px;
     font-family: Roboto;
     font-size: 24px;
     color: #04007b;
 }
 
-.tasks {
-    text-align: center;
-    font-size: 18px;
+.signIn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 24px;
+    color: #04007b;
+}
+
+.inputBox {
+    width: 300px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.signButton {
+    width: 100px;
+    height: 30px;
 }

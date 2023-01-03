@@ -10,16 +10,11 @@ if (isset($_SESSION['username'])) {
 
 $tasks = null;
 if (isset($_SESSION['tasks'])) {
-    $tasks = $_SESSION['tasks'];
+    foreach ($_SESSION['tasks'] as $key => $task) {
+        if (!$task->taskStatus()) {
+            $tasks[] = $task;
+        }
+    }
 };
-
-if (isset($_GET['action']) && $_GET['action'] == 'delete'){
-    print_r($_SESSION['tasks']);
-    die();
-    $key = $_GET['key'];
-    unset($_SESSION['tasks'][$key]);
-    header('Location: /?controller=tasks');
-    die();
-}
 
 include 'view/tasks.php';

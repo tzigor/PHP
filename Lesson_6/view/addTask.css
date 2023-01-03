@@ -17,21 +17,40 @@ body {
     font-size: 18px;
 }
 
-.header {
-    font-family: Roboto;
-    font-size: 36px;
-    color: #1f1f1f;
-}
-
-.auth {
+.taskBox {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin-top: 50px;
     font-family: Roboto;
     font-size: 24px;
     color: #04007b;
 }
 
-.tasks {
-    text-align: center;
-    font-size: 18px;
+.task {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: Roboto;
+    font-size: 24px;
+    color: #04007b;
+}
+
+.inputBox {
+    width: 600px;
+    height: 30px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.prirityBox {
+    width: 100px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+.taskButton {
+    width: 100px;
+    height: 30px;
 }

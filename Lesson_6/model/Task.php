@@ -1,6 +1,7 @@
 <?php
 
-class Task {
+class Task
+{
     private User $user;
     private string $description;
     private DateTime $dateCreated;
@@ -13,28 +14,38 @@ class Task {
 
     function __construct(User $user, string $description, int $priority)
     {
-       $this->user = $user;
-       $this->description = $description;
-       $this->priority = $priority;
-       $this->dateCreated = new DateTime();
-       $this->isDone = false;
+        $this->user = $user;
+        $this->description = $description;
+        $this->priority = $priority;
+        $this->dateCreated = new DateTime();
+        $this->isDone = false;
     }
 
     public function setDescription(string $description, $priority = 0): void
     {
-       $this->description = $description;
-       $this->priority = $priority;
-       $this->dateUpdated = new DateTime();
-    } 
+        $this->description = $description;
+        $this->priority = $priority;
+        $this->dateUpdated = new DateTime();
+    }
 
     public function getDescription(): string
     {
         return $this->description;
     }
 
+    public function getPriority(): int
+    {
+        return $this->priority;
+    }
+
+    public function getDateCreated(): string
+    {
+        return date_format($this->dateCreated, 'Y-m-d H');
+    }
+
     public function markAsDone(): void
     {
-        $this->isDone = true; 
+        $this->isDone = true;
         $this->dateDone = new DateTime();
     }
 
@@ -45,11 +56,12 @@ class Task {
 
     public function newComment(Comment $comment): void
     {
-        $this->comments[$comment->getUserName()] = $comment->getText();    
+        $this->comments[$comment->getUserName()] = $comment->getText();
     }
 }
 
-class Comment {
+class Comment
+{
     private User $author;
     private Task $task;
     private string $text;
@@ -80,15 +92,17 @@ class Comment {
     }
 }
 
-class TaskList {
+class TaskList
+{
     private array $tasks = [];
     public function setTask(Task $task): void
     {
-        $this->$tasks[] = $task;
+        $this->tasks[] = $task;
     }
 }
 
-class TaskService {
+class TaskService
+{
     public static function addComment(User $user, Task $task, string $text): Comment
     {
         $comment = new Comment();
