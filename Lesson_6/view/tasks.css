@@ -19,6 +19,19 @@ body {
     font-size: 16px;
 }
 
+.topContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.header {
+    font-family: Roboto;
+    font-size: 36px;
+    color: #910000;
+}
+
 .menu {
     font-family: Roboto;
     font-size: 18px;

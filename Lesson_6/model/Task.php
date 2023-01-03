@@ -40,7 +40,7 @@ class Task
 
     public function getDateCreated(): string
     {
-        return date_format($this->dateCreated, 'Y-m-d H');
+        return date_format($this->dateCreated, 'd-M-Y H:i');
     }
 
     public function markAsDone(): void

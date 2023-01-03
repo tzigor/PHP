@@ -8,11 +8,15 @@
 
 <body>
     <div class="container">
-        <div class="menu">
-            <a href="/">Main</a>
-            <a href="/?controller=addTask">Add Task</a>
+        <div class="topContainer">
+            <div class="menu">
+                <a href="/">Main</a>
+                <a href="/?controller=addTask">Add Task</a>
+                <p>Hello <?= $userName ?>.</p>
+            </div>
+            <div class="header">Task controller</div>
         </div>
-        <p>Hello <?= $userName ?>.</p>
+
         <div class="tasks">
             <p>Task List</p>
             <div class="taskHeader">

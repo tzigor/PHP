@@ -12,6 +12,13 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.topContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .menu {
     font-family: Roboto;
     font-size: 18px;
@@ -20,7 +27,7 @@ body {
 .header {
     font-family: Roboto;
     font-size: 36px;
-    color: #1f1f1f;
+    color: #910000;
 }
 
 .auth {

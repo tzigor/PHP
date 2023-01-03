@@ -12,9 +12,24 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.header {
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 10px;
+    font-family: Roboto;
+    font-size: 36px;
+    color: #910000;
+}
+
 .menu {
     font-family: Roboto;
     font-size: 18px;
+}
+
+.signInText {
+    text-align: center;
+    font-family: Roboto;
+    font-size: 24px;
 }
 
 .error {
