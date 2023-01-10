@@ -1,0 +1,45 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Play:wght@400;700&family=Roboto:wght@300;400;500&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Play', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.topContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.menu {
+    font-family: Roboto;
+    font-size: 18px;
+}
+
+.header {
+    font-family: Roboto;
+    font-size: 36px;
+    color: #910000;
+}
+
+.auth {
+    display: flex;
+    width: 170px;
+    justify-content: space-between;
+    font-family: Roboto;
+    font-size: 24px;
+    color: #04007b;
+}
+
+.tasks {
+    text-align: center;
+    font-size: 18px;
+}
