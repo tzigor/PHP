@@ -19,10 +19,7 @@ class TaskProvider
                 :user, 
                 :description, 
                 :priority,
-                :isDone,
-                :dateCreated,
-                :dateUpdated,
-                :dateDone
+                :isDone
                 )'
         );
 
@@ -32,10 +29,7 @@ class TaskProvider
             'user' => $task->getUser(),
             'description' => $task->getDescription(),
             'priority' => $task->getPriority(),
-            'isDone' => $isDone,
-            'dateCreated' => $task->getDateCreated(),
-            'dateUpdated' => $task->getDateUpdated(),
-            'dateDone' => $task->getDateDone()
+            'isDone' => $isDone
         ]);
     }
 

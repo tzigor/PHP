@@ -22,7 +22,6 @@
             <div class="taskHeader">
                 <p>Description</p>
                 <p>Priority</p>
-                <p>Created</p>
                 <p>Mark as done</p>
             </div>
             <?php if ($tasks !== null) : ?>
@@ -30,7 +29,6 @@
                     <div class="taskList">
                         <p><?= $task->getDescription() ?></p>
                         <p><?= $task->getPriority() ?></p>
-                        <p><?= $task->getDateCreated() ?></p>
                         <a href="/?action=delete&key=<?= $task->getId() ?>">[Task done]</a>
                     </div>
                 <?php endforeach; ?>
