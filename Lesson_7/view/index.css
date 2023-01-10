@@ -17,11 +17,27 @@ body {
     justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
+    background-color: #ececec;
+    height: 50px;
+    align-items: center;
 }
 
 .menu {
+    /* display: flex;
+    flex-direction: column;
+    align-items: center; */
+    margin-top: 10px;
     font-family: Roboto;
     font-size: 18px;
+}
+
+.exitBtn {
+    width: 80px;
+    height: 25px;
+    margin-bottom: 10px;
+    background-color: #fefdfd;
+    border-radius: 3px;
+    border-color: #ececec;
 }
 
 .header {

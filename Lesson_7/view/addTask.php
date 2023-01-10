@@ -7,11 +7,14 @@
 </style>
 
 <body>
-    <div class="menu">
-        <a href="/">Main</a>
-        <a href="/?controller=tasks">Tasks</a>
+    <div class="topContainer">
+        <div class="menu">
+            <a href="/">Main</a>
+            <a href="/?controller=tasks">Tasks</a>
+            <p>User: <?= $userName ?>.</p>
+        </div>
+        <div class="header">Task controller</div>
     </div>
-    <p>User: <?= $userName ?>.</p>
     <div class="taskBox">
         <p>Add task</p>
         <form id="add" class="task" action='' method="POST">

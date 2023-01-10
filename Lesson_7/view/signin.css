@@ -12,6 +12,21 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.topContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #ececec;
+    height: 50px;
+    align-items: center;
+}
+
+.menu {
+    font-family: Roboto;
+    font-size: 18px;
+}
+
 .header {
     display: flex;
     justify-content: flex-end;

@@ -7,7 +7,13 @@
 </style>
 
 <body>
-    <div class="header">Task controller</div>
+    <div class="topContainer">
+        <div class="menu">
+            <a href="/">Main</a>
+            <a href="/?controller=signUp">Sign Up</a>
+        </div>
+        <div class="header">Task controller</div>
+    </div>
     <div class="signInText">Sign in</div>
     <div>
         <?php if ($error !== null) : ?>

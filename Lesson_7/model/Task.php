@@ -8,7 +8,6 @@ class Task
     private string $description;
     private int $priority;
     private bool $isDone = false;
-    private array $comments = [];
 
     function __construct(string $user, string $description, int $priority)
     {
@@ -57,11 +56,6 @@ class Task
     public function setStatus(bool $status)
     {
         $this->isDone = $status;
-    }
-
-    public function newComment(Comment $comment): void
-    {
-        $this->comments[$comment->getUserName()] = $comment->getText();
     }
 }
 
