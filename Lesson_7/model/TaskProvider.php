@@ -39,18 +39,14 @@ class TaskProvider
         ]);
     }
 
-    public function getTasks(): array
+    public function getTasks(): ?array
     {
+        $taskList = null;
         $statement = $this->pdo->prepare('SELECT * FROM `tasks` WHERE `isDone` LIKE ?');
         $statement->execute([0]);
-
-        while ($statement && $taskData = $statement->fetch(PDO::FETCH_ASSOC)) {
-            $task = new Task($taskData['user'], $taskData['description'], $taskData['priority']);
-            $task->setDateCreated($taskData['dateCreated']);
-            $task->setDateUpdated($taskData['dateUpdated']);
-            $task->setDateDone($taskData['dateDone']);
-            $task->setStatus($taskData['isDone']);
-            $taskList[] = $task;
+        $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Task', ['', '', 0]);
+        while ($statement && $taskData = $statement->fetch()) {
+            $taskList[] = $taskData;
         }
         return $taskList;
     }

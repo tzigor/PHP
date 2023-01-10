@@ -31,11 +31,11 @@
                         <p><?= $task->getDescription() ?></p>
                         <p><?= $task->getPriority() ?></p>
                         <p><?= $task->getDateCreated() ?></p>
-                        <a href="/?action=delete&key=<?= $key ?>">[Task done]</a>
+                        <a href="/?action=delete&key=<?= $task->getId() ?>">[Task done]</a>
                     </div>
                 <?php endforeach; ?>
             <?php else : ?>
-                <p>No tasks recorded</p>
+                <p>No active tasks</p>
             <?php endif; ?>
         </div>
 

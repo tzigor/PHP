@@ -8,7 +8,7 @@
 
 <body>
     <div class="header">Task controller</div>
-    <div class="signInText">Sign in</div>
+    <div class="signInText">Sign up</div>
     <div>
         <?php if ($error !== null) : ?>
             <p class="error"><?= $error ?></p>

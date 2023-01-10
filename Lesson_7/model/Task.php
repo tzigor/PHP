@@ -3,6 +3,7 @@
 class Task
 {
     // private User $user;
+    private string $id;
     private string $user;
     private string $description;
     private int $priority;
@@ -11,7 +12,6 @@ class Task
     private string $dateUpdated;
     private string $dateDone;
     private array $comments = [];
-
 
     function __construct(string $user, string $description, int $priority)
     {
@@ -39,6 +39,11 @@ class Task
     public function getUser(): string
     {
         return $this->user;
+    }
+
+    public function getId(): string
+    {
+        return $this->id;
     }
 
     public function getPriority(): int

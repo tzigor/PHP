@@ -16,8 +16,12 @@
             </div>
 
         <?php else : ?>
-            <a class="auth" href="/?controller=security">Sign In</a>
+            <div class="auth">
+                <a href="/?controller=security">Sign In</a>
+                <a href="/?controller=signUp">Sign Up</a>
+            </div>
         <?php endif; ?>
+
         <div class="header"><?= $pageHeader ?></div>
     </div>
 </body>

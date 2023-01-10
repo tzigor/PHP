@@ -34,4 +34,14 @@ class UserProvider
         ]);
         return $statement->fetchObject(User::class, [$username]) ?: null;
     }
+
+    public function userExist(string $username): bool
+    {
+        $statement = $this->pdo->prepare(
+            'SELECT * FROM users WHERE username = :username LIMIT 1'
+        );
+        $statement->execute(['username' => $username]);
+        if ($statement->fetch())  return true;
+        else return false;
+    }
 }
