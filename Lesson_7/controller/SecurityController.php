@@ -2,8 +2,9 @@
 
 require_once 'model/User.php';
 require_once 'model/UserProvider.php';
+require_once 'model/SessionProvider.php';
 
-session_start();
+$session = new Session();
 $pdo = require 'db.php';
 
 $error = null;
@@ -16,7 +17,7 @@ if (isset($_POST['username'], $_POST['pass'])) {
     if ($user === null) {
         $error = 'User not found';
     } else {
-        $_SESSION['username'] = $user;
+        $session->saveUser($user);
         header('Location: /');
         die();
     }

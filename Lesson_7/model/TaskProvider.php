@@ -43,6 +43,16 @@ class TaskProvider
         ]);
         $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Task', ['', '', 0]);
         $taskList = $statement->fetchAll();
-        return $taskList;
+        if (!empty($taskList)) return $taskList;
+        else return null;
+    }
+
+    public function setTaskStatus(int $id, int $satus)
+    {
+        $statement = $this->pdo->prepare("UPDATE tasks SET isDone=:isDone WHERE id=:id");
+        $statement->execute([
+            'isDone' => $satus,
+            'id' => $id
+        ]);
     }
 }

@@ -1,39 +1,33 @@
 <?php
 require_once 'model/User.php';
 require_once 'model/Task.php';
+require_once 'model/TaskProvider.php';
+require_once 'model/SessionProvider.php';
 $pdo = require 'db.php';
-session_start();
 $pageHeader = 'Task controller';
+$taskProvider = new TaskProvider($pdo);
+$session = new Session();
 
-$userName = null;
-if (isset($_SESSION['username'])) {
-    $userName = $_SESSION['username']->getUsername();
-}
+$userName = $session->getUsername();
 
 if (isset($_GET['action']) && $_GET['action'] == 'logout') {
-    unset($_SESSION['username']);
-    unset($_SESSION['mode']);
-    session_destroy();
+    $session->deleteSession();
+    header('Location: /');
+    die();
 }
 
 if (isset($_GET['action']) && $_GET['action'] == 'showCompleted') {
-    if (!isset($_SESSION['mode']) || $_SESSION['mode'] == 0) {
-        $_SESSION['mode'] = 1;
-    } else {
-        $_SESSION['mode'] = 0;
-    }
+    $session->setMode();
     header('Location: /?controller=tasks');
     die();
 }
 
 if (isset($_GET['action']) && ($_GET['action'] == 'delete' || $_GET['action'] == 'incomplete')) {
-    $statement = $pdo->prepare("UPDATE tasks SET isDone=:isDone WHERE id=:id");
-    if ($_GET['action'] == 'delete') $mode = 1;
-    else $mode = 0;
-    $statement->execute([
-        'isDone' => $mode,
-        'id' => $_GET['key']
-    ]);
+    if ($_GET['action'] == 'delete') {
+        $taskProvider->setTaskStatus($_GET['key'], 1); // mark done
+    } else {
+        $taskProvider->setTaskStatus($_GET['key'], 0); // mark incomplete
+    }
     header('Location: /?controller=tasks');
     die();
 }

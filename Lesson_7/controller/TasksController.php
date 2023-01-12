@@ -2,25 +2,18 @@
 require_once 'model/User.php';
 require_once 'model/Task.php';
 require_once 'model/TaskProvider.php';
+require_once 'model/SessionProvider.php';
 $pdo = require 'db.php';
 
-session_start();
-$userName = null;
+$session = new Session();
 $mode = null;
-if (isset($_SESSION['username'])) {
-    $userName = $_SESSION['username']->getUsername();
-} else {
+$userName = $session->getUsername();
+if ($userName == null) {
     header('Location: /?controller=index');
     die();
 }
 
-if (isset($_SESSION['mode'])) {
-    $mode = $_SESSION['mode'];
-} else {
-    $mode = 0;
-    $_SESSION['mode'] = $mode;
-}
-
+$mode = $session->initMode();
 $taskProvider = new TaskProvider($pdo);
 $tasks = $taskProvider->getUndoneList($userName, $mode);
 

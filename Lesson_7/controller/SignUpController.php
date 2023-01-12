@@ -1,9 +1,9 @@
 <?php
-
 require_once 'model/User.php';
 require_once 'model/UserProvider.php';
+require_once 'model/SessionProvider.php';
 
-session_start();
+$session = new Session();
 $pdo = require 'db.php';
 
 $error = null;
@@ -15,7 +15,7 @@ if (isset($_POST['username'], $_POST['pass'])) {
             $user = new User($_POST['username']);
             $user->setName('Igor');
             $userProvider->registerUser($user, $_POST['pass']);
-            $_SESSION['username'] = $user;
+            $session->saveUser($user);
             header('Location: /');
             die();
         } else {
