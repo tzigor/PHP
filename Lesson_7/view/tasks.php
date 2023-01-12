@@ -17,7 +17,7 @@
     </div>
 
     <a href='/?action=showCompleted'>
-        <?php if ($status == null || $status == 0) : ?>
+        <?php if ($mode == null || $mode == 0) : ?>
             <button class="showBtn">Show completed tasks</button>
         <?php else : ?>
             <button class="showBtn">Show incompleted tasks</button>
@@ -36,7 +36,7 @@
                 <div class="taskList">
                     <p><?= $task->getDescription() ?></p>
                     <p><?= $task->getPriority() ?></p>
-                    <?php if ($status == null || $status == 0) : ?>
+                    <?php if ($mode == null || $mode == 0) : ?>
                         <a href="/?action=delete&key=<?= $task->getId() ?>">[Task done]</a>
                     <?php else : ?>
                         <a href="/?action=incomplete&key=<?= $task->getId() ?>">[Task incomplete]</a>

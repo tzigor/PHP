@@ -33,18 +33,16 @@ class TaskProvider
         ]);
     }
 
-    public function getUndoneList(string $username, int $status): ?array
+    public function getUndoneList(string $username, int $mode): ?array
     {
         $taskList = null;
         $statement = $this->pdo->prepare('SELECT * FROM `tasks` WHERE isDone=:isDone AND user=:user');
         $statement->execute([
-            'isDone' => $status,
+            'isDone' => $mode,
             'user' => $username
         ]);
         $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Task', ['', '', 0]);
-        while ($statement && $taskData = $statement->fetch()) {
-            $taskList[] = $taskData;
-        }
+        $taskList = $statement->fetchAll();
         return $taskList;
     }
 }

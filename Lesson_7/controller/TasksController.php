@@ -6,7 +6,7 @@ $pdo = require 'db.php';
 
 session_start();
 $userName = null;
-$status = null;
+$mode = null;
 if (isset($_SESSION['username'])) {
     $userName = $_SESSION['username']->getUsername();
 } else {
@@ -14,14 +14,14 @@ if (isset($_SESSION['username'])) {
     die();
 }
 
-if (isset($_SESSION['status'])) {
-    $status = $_SESSION['status'];
+if (isset($_SESSION['mode'])) {
+    $mode = $_SESSION['mode'];
 } else {
-    $status = 0;
-    $_SESSION['status'] = $status;
+    $mode = 0;
+    $_SESSION['mode'] = $mode;
 }
 
 $taskProvider = new TaskProvider($pdo);
-$tasks = $taskProvider->getUndoneList($userName, $status);
+$tasks = $taskProvider->getUndoneList($userName, $mode);
 
 include 'view/tasks.php';
