@@ -12,11 +12,11 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    font-family: Roboto;
-    font-size: 16px;
+.showBtn {
+    width: 200px;
+    height: 30px;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 
 .topContainer {
@@ -24,6 +24,9 @@ body {
     justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
+    background-color: #ececec;
+    height: 50px;
+    align-items: center;
 }
 
 .header {

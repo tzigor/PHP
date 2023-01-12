@@ -12,7 +12,11 @@
         <?php if ($userName !== null) : ?>
             <div class="menu">
                 <a class="tasks" href="/?controller=tasks">Tasks</a>
-                <p>Hello <?= $userName ?>. <a href='?action=logout'>[Exit]</a></p>
+                <p>Hello <?= $userName ?>.
+                    <a href='?action=logout'>
+                        <button class='exitBtn'>Exit</button>
+                    </a>
+                </p>
             </div>
 
         <?php else : ?>

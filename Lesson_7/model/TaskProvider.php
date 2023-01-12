@@ -14,7 +14,7 @@ class TaskProvider
     {
         $statement = $this->pdo->prepare(
             'INSERT INTO 
-            tasks (user, description, priority, isDone, dateCreated, dateUpdated, dateDone) 
+            tasks (user, description, priority, isDone) 
             VALUES (
                 :user, 
                 :description, 
@@ -33,11 +33,14 @@ class TaskProvider
         ]);
     }
 
-    public function getTasks(): ?array
+    public function getUndoneList(string $username, int $status): ?array
     {
         $taskList = null;
-        $statement = $this->pdo->prepare('SELECT * FROM `tasks` WHERE `isDone` LIKE ?');
-        $statement->execute([0]);
+        $statement = $this->pdo->prepare('SELECT * FROM `tasks` WHERE isDone=:isDone AND user=:user');
+        $statement->execute([
+            'isDone' => $status,
+            'user' => $username
+        ]);
         $statement->setFetchMode(PDO::FETCH_CLASS | PDO::FETCH_PROPS_LATE, 'Task', ['', '', 0]);
         while ($statement && $taskData = $statement->fetch()) {
             $taskList[] = $taskData;

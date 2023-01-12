@@ -19,7 +19,7 @@ if (isset($_POST['username'], $_POST['pass'])) {
         $_SESSION['username'] = $user;
         header('Location: /');
         die();
-    };
-};
+    }
+}
 
 include 'view/signin.php';
