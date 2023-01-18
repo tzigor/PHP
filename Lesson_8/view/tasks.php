@@ -39,7 +39,7 @@
                     <?php if ($mode == null || $mode == 0) : ?>
                         <a href="/?controller=tasks&action=delete&key=<?= $task->getId() ?>">[Task done]</a>
                     <?php else : ?>
-                        <a href="/?action=incomplete&key=<?= $task->getId() ?>">[Task incomplete]</a>
+                        <a href="/?controller=tasks&action=incomplete&key=<?= $task->getId() ?>">[Task incomplete]</a>
                     <?php endif; ?>
                 </div>
             <?php endforeach; ?>
